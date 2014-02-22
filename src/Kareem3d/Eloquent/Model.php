@@ -78,35 +78,6 @@ class Model extends \Illuminate\Database\Eloquent\Model {
     protected $languagesAttributes = array();
 
     /**
-     * Find model or get new instance.
-     *
-     * @param $id
-     * @param array $columns
-     * @return \Kareem3d\Eloquent\Model
-     */
-    public static function findOrNew($id, $columns = array('*'))
-    {
-        if($model = static::find($id, $columns))
-
-            return $model;
-
-        return new static;
-    }
-
-    /**
-     * Get all rows newer than the given date
-     *
-     * @param mixed $date
-     * @return Collection
-     */
-    public static function getNewerThan($date)
-    {
-        $instance = new static;
-
-        return $instance->where($instance->getCreatedAtColumn(), '>', $date)->get();
-    }
-
-    /**
      * Create new instance, validate attributes
      *
      * @param array $attributes
